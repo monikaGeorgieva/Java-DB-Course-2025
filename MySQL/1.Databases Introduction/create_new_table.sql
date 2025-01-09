@@ -5,3 +5,10 @@ CREATE TABLE `db_example`.`employees` (
   PRIMARY KEY (`id`));
 
 SELECT * FROM db_example.employees;
+
+INSERT INTO `db_example`.`products` (`id`, `name`, `category_id`)
+ VALUES ('1', 'banana', '24');
+ 
+ 
+INSERT INTO `db_example`.`products` (`id`, `name`, `category_id`)
+ VALUES ('2', 'apple', '15');
