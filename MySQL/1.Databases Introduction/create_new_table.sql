@@ -12,3 +12,10 @@ INSERT INTO `db_example`.`products` (`id`, `name`, `category_id`)
  
 INSERT INTO `db_example`.`products` (`id`, `name`, `category_id`)
  VALUES ('2', 'apple', '15');
+ 
+ ALTER TABLE employees
+ ADD COLUMN username VARCHAR(50);
+ 
+ SELECT * FROM employees;
+ 
+ 
