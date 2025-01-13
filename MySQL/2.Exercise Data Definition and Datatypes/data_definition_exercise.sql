@@ -39,4 +39,49 @@ INSERT INTO minions VALUES
 SELECT * from towns;
 SELECT * FROM minions;
 
+CREATE TABLE people(
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(200) NOT NULL,
+    picture TEXT,
+    height DOUBLE(4,2),
+    weight DOUBLE(4,2),
+    gender CHAR(1),
+    birthday DATE NOT NULL,
+    biography VARCHAR (500)
+);
 
+SELECT * FROM people;
+
+INSERT INTO people VALUES
+(1,'Moni','text',1.9,52,'f','1990-06-15','lovely girl'),
+(2,'Krisi','text',1.9,52,'f','1994-08-12','lovely girl'),
+(3,'Lilu','text',1.9,46,'f','1994-03-10','lovely girl');
+
+-- 7- create table username 
+DROP table users;
+
+CREATE TABLE users (
+id INT UNIQUE PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name VARCHAR(30) NOT NULL,
+password VARCHAR(26) NOT NULL,
+profile_picture TEXT,
+last_login_time DATETIME,
+is_deleted BOOLEAN 
+);
+
+INSERT INTO users (name,password,profile_picture,last_login_time,is_deleted) VALUES
+('Lilyna','15462',NULL,'2020-02-14 20:11:45', false),
+('Sasho','15462',NULL,'2020-02-14 20:11:45', false),
+('Kiril','15462',NULL,'2020-02-14 20:11:45', false),
+('David','15462',NULL,'2020-02-14 20:11:45', false),
+('Ina','15462',NULL,'2020-02-14 20:11:45', false);
+
+select * FROM users;
+
+ALTER TABLE users
+DROP PRIMARY KEY,
+ADD CONSTRAINT pk_users
+PRIMARY KEY (id,name);
+
+ALTER TABLE users
+CHANGE COLUMN last_login_time last_login_time DATETIME DEFAULT NOW();
