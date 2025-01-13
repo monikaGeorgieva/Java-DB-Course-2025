@@ -85,3 +85,53 @@ PRIMARY KEY (id,name);
 
 ALTER TABLE users
 CHANGE COLUMN last_login_time last_login_time DATETIME DEFAULT NOW();
+
+ALTER TABLE users 
+DROP PRIMARY KEY,
+ADD PRIMARY KEY(id);
+
+ALTER TABLE users
+MODIFY name VARCHAR(30) NOT NULL UNIQUE;
+
+
+CREATE DATABASE movies;
+USE movies;
+
+CREATE TABLE directors(
+id INT UNIQUE PRIMARY KEY AUTO_INCREMENT NOT NULL,
+director_name varchar(30) NOT NULL,
+notes VARCHAR(100)
+);
+
+CREATE TABLE genres(
+id INT UNIQUE PRIMARY KEY AUTO_INCREMENT NOT NULL,
+genre_name VARCHAR(30) NOT NULL
+);
+
+CREATE table categories(
+id INT UNIQUE PRIMARY KEY AUTO_INCREMENT NOT NULL,
+category_name VARCHAR(30) NOT NULL);
+
+CREATE table movies(
+id INT UNIQUE PRIMARY KEY AUTO_INCREMENT NOT NULL,
+title VARCHAR(200),
+director_id INT,
+copyright_year DATE,
+lenght DOUBLE,
+category_id INT,
+rating INT,
+notes TEXT
+);
+
+INSERT INTO directors(director_name,notes) VALUES
+('Steven Spielberg','best film director'),
+('James Cameron','second best film director');
+
+INSERT INTO genres(genre_name) VALUES
+('horror'),
+('comedy'),
+('action');
+
+INSERT INTO movies(title,director_id,copyright_year,lenght,category_id,rating,notes) VALUES
+('Harry Potter',1,'1998-06-17',2.60,3,10,'one of the best movies ever'),
+('Venom',2,'2010-06-17',2.60,4,10,'Pacos favorite character');
