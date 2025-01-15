@@ -35,3 +35,34 @@ ORDER BY id;
 SELECT last_name,department_id
 from employees
 WHERE department_id = 1;
+
+SELECT * FROM 
+employees
+where salary > 1000 and department_id = 4;
+
+SELECT * FROM 
+employees
+WHERE department_id = 3 and department_id = 4;
+
+SELECT * FROM 
+employees
+WHERE department_id = 3 or department_id = 4;
+
+SELECT * FROM 
+employees
+WHERE salary > 1000 and salary < 2000;
+
+SELECT * FROM 
+employees
+WHERE salary > 1000 or salary < 2000;
+
+UPDATE employees
+set last_name = 'Brown'
+where department_id = 1;
+
+
+SELECT * FROM employees;
+
+SELECT id,salary * 1.10
+FROM employees
+where department_id = 3;
