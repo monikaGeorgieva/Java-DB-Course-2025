@@ -92,6 +92,58 @@ hire_date AS 'Hire Date',
 salary, address_id FROM employees
 ORDER BY salary DESC,first_name,last_name DESC,middle_name; 
 
+-- 15.Create View Employees with Salaries 
+CREATE VIEW v_employees_salaries AS
+SELECT first_name,last_name,salary
+from employees;
+
+SELECT * from v_employees_salaries;
+
+-- 16. Create VIEW employees with job title
+CREATE or replace VIEW v_employees_job_title AS
+SELECT concat_ws(' ',first_name,middle_name,last_name) AS 'full name',
+job_title
+FROM employees;
+
+select * FROM v_employees_job_title;
+
+-- 17.Disting Job Titles
+SELECT distinct job_title
+from employees 
+ORDER BY job_title;
+
+-- 18.Find first 10 started Projects
+SELECT * from projects
+ORDER BY start_date, name
+LIMIT 10;
+
+-- 19.Last 7 hires Employees
+SELECT first_name, last_name,hire_date FROM employees
+ORDER BY hire_date DESC
+limit 7;
+
+-- 20. Increase Salaries
+UPDATE employees
+SET salary = salary * 1.12
+WHERE department_id IN (1,2,4,11);
+
+SELECT salary FROM employees;
+
+-- 21.All mountain Peaks
+SELECT peak_name 
+FROM peaks
+ORDER BY peak_name;
+
+-- 22.Biggest Countries by population
+SELECT country_name,population
+from countries
+WHERE continent_code = 'EU'
+ORDER BY population desc,country_name
+limit 30;
+
+
+
+
 
 
  
