@@ -61,8 +61,12 @@ SELECT * FROM authors WHERE first_name NOT LIKE 'A%';
 -- Намира всички имена, които НЕ започват с 'A'
 
 
+-- 5. Harry Potter Books
+
+SELECT title
+FROM books
+WHERE title LIKE 'Harry%'
+ORDER BY id;
 
 
-
-
-SELECT * FROM authors;
+SELECT * FROM books;
